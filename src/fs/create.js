@@ -15,7 +15,9 @@ const create = async () => {
     });
   } catch (err) {
     if (err.code === 'EEXIST') {
-      throw new Error('FS operation failed');
+      throw new Error(`FS operation failed: ${err}`)
+    } else {
+      throw err;
     }
   }
 };
